@@ -26,28 +26,42 @@ createApp({
             newActivity: '',
             toDoList : [
                 {
-                    text: 'Mangiare una mela',
-                    done: false
-                },
-                
-                {
-                    text: 'Cuocere la pasta',
+                    text: 'Arrivare in orario a lezione',
                     done: true
                 },
                 
                 {
-                    text: 'Scrivere codice',
+                    text: "Completare l'esercitazione pomeridiana",
+                    done: true
+                },
+                
+                {
+                    text: 'Scrivere codice!!',
                     done: false
                 },
             ]
         };
     },
     methods: {
+
         newTask () {
-            this.toDoList.push({text: this.newActivity, done: false})
+            this.toDoList.push({
+                text: this.newActivity, 
+                done: false
+            });
+            this.newActivity = '';
         },
+
         removeTask (i) {
             this.toDoList.splice(i, 1);
+        },
+
+        changeStatus (i) {
+            if (this.toDoList[i].done) {
+                this.toDoList[i].done = false;
+            } else {
+                this.toDoList[i].done = true;
+            }
         }
     }
 

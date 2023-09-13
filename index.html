@@ -13,19 +13,22 @@
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
     <body>
-
-        <div class="container mt-5">
-
+        <header class="container d-flex align-items-center justify-content-center mt-5">
+            <img src="./assets/img/logo.png">
+            <h1>TO DO LIST</h1>
+        </header>
+        <div class="container mt-3">
+            
             <div id="app" class="text-center w-75 m-auto">
-                <form class="d-flex flex-column w-25 m-auto">
-                    <label>Inserisci l'attivita' da svolgere</label>
-                    <input type="text" v-model="newActivity">
-                    <input type="submit" @click.prevent="newTask" value="Aggiungi" class="w-50 m-auto">
+                <form class="form-floating d-flex flex-column w-25 m-auto">
+                    <input type="text" v-model="newActivity" class="form-control my-3" placeholder="New Activity" id="new_activity">
+                    <label class="form-label" for="new_activity">Inserisci l'attivita' da svolgere</label>
+                    <input type="submit" @click.prevent="newTask" value="Aggiungi" class="w-50 m-auto btn btn-primary">
                 </form>
     
                 <div class="container mt-5">
                     <ul class="list-unstyled">
-                        <li v-for="(item, i) in toDoList" class="fs-3" :class="[ item.done ? 'text-decoration-line-through' : '' ]">
+                        <li v-for="(item, i) in toDoList" @click="changeStatus(i)" class="fs-3" :class="[ item.done ? 'text-decoration-line-through' : '' ]">
                             {{ item.text }}
                             <i class="fa-solid fa-xmark" @click="removeTask(i)"></i>
                         </li>
