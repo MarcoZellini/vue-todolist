@@ -21,27 +21,29 @@
 const { createApp } = Vue;
 
 createApp({
-    data () {
+    data() {
         return {
             newActivity: '',
-            toDoList : []
+            toDoList: []
         };
     },
     methods: {
 
-        newTask () {
-            this.toDoList.push({
-                text: this.newActivity, 
-                done: false
-            });
-            this.newActivity = '';
+        newTask() {
+            if (this.newActivity !== '') {
+                this.toDoList.push({
+                    text: this.newActivity,
+                    done: false
+                });
+                this.newActivity = '';
+            }
         },
 
-        removeTask (i) {
+        removeTask(i) {
             this.toDoList.splice(i, 1);
         },
 
-        changeStatus (i) {
+        changeStatus(i) {
             if (this.toDoList[i].done) {
                 this.toDoList[i].done = false;
             } else {
