@@ -27,12 +27,14 @@
                 </form>
     
                 <div class="container mt-5">
-                    <ul class="list-unstyled">
-                        <li v-for="(item, i) in toDoList" @click="changeStatus(i)" class="fs-3" :class="[ item.done ? 'text-decoration-line-through' : '' ]">
-                            {{ item.text }}
-                            <i class="fa-solid fa-xmark" @click="removeTask(i)"></i>
-                        </li>
-                    </ul>
+                    <div class="card">
+                        <ul class="list-group list-unstyled">
+                            <li v-for="(item, i) in toDoList" class="d-flex align-items-center justify-content-center list-group-item fs-3">
+                                <div class="me-2" @click="changeStatus(i)" :class="[ item.done ? 'text-decoration-line-through' : '' ]">{{ item.text }}</div>
+                                <i class="fa-solid fa-xmark" @click="removeTask(i)"></i>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <!-- /#app -->
