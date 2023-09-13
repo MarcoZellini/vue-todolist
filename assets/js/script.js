@@ -23,6 +23,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            errorMessage: '',
             newActivity: '',
             toDoList: []
         };
@@ -36,6 +37,9 @@ createApp({
                     done: false
                 });
                 this.newActivity = '';
+                this.errorMessage = '';
+            } else {
+                this.errorMessage = 'Non puoi inserire una task vuota!'
             }
         },
 
