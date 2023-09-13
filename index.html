@@ -29,10 +29,11 @@
                 <div class="container mt-5">
                     <div class="card">
                         <ul class="list-group list-unstyled">
-                            <li v-for="(item, i) in toDoList" class="d-flex align-items-center justify-content-center list-group-item fs-3">
+                            <li v-if="toDoList.length > 0" v-for="(item, i) in toDoList" class="d-flex align-items-center justify-content-center list-group-item fs-3">
                                 <div class="me-2" @click="changeStatus(i)" :class="[ item.done ? 'text-decoration-line-through' : '' ]">{{ item.text }}</div>
                                 <i class="fa-solid fa-xmark" @click="removeTask(i)"></i>
                             </li>
+                            <h1 v-else>La Lista e' Vuota! 😁</h1>
                         </ul>
                     </div>
                 </div>

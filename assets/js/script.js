@@ -24,22 +24,7 @@ createApp({
     data () {
         return {
             newActivity: '',
-            toDoList : [
-                {
-                    text: 'Arrivare in orario a lezione',
-                    done: true
-                },
-                
-                {
-                    text: "Completare l'esercitazione pomeridiana",
-                    done: true
-                },
-                
-                {
-                    text: 'Scrivere codice!!',
-                    done: false
-                },
-            ]
+            toDoList : []
         };
     },
     methods: {
